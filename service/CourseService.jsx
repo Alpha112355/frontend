@@ -5,5 +5,8 @@ class CourseService{
     getAllCourse(){
         return axios.get(COURSE_REST_API_URL );
     }
+    createCourse(Course){
+        return axios.post(COURSE_REST_API_URL , Course)
+    }
 }
 export default new CourseService();
