@@ -13,6 +13,11 @@ class TrainingSchuduleService{
     createTrainingSchudule(trainingSchudule){
         return axios.post(TRAININGSCHUDULE_REST_API_URL , trainingSchudule)
     }
+
+    deleteTrainingSchudule(trainingSchuduleId){
+
+        return axios.delete(TRAININGSCHUDULE_REST_API_URL +'/' + trainingSchuduleId)
+    }
 }
 
 export default new TrainingSchuduleService();
