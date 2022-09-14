@@ -50,10 +50,13 @@ const GetStudentComponent = () => {
                             <td>{student.lastName}</td>
                             <td>{student.mobile}</td>
                             <td>{student.email}</td>
-                            <td>
+
+                            <td><Link to = "/getTrainingSchudule" className="btn btn-primary">Training Schudule</Link></td>
+                            {/* <td>
                             <Link className='btn btn-info' to={`/editstudent/${student.id}`}>Update</Link>
+                            <Link to="getTrainingSchudule" className="btn btn-primary">Training Schudule</Link>
                             <button className='btn btn-danger' onClick={( ) => deleteStudent(student.id)}>delete</button>
-                            </td>
+                            </td> */}
                             
                             {/* <td>{student.progressId}</td>
                             <td>{student.paymentId}</td>
