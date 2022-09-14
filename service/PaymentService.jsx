@@ -1,14 +1,17 @@
 import axios from "axios";
+const COURSE_REST_API_URL  ='http://localhost:8080/sms/Course';
 
-const PAYMENT_REST_API_URL = 'http://localhost:8080/sms/Payment';
-
-class PaymentService{
-    getAllPayment(){
-        return axios.get(PAYMENT_REST_API_URL );
+class CourseService{
+    getAllCourse(){
+        return axios.get(COURSE_REST_API_URL );
+    }
+    createCourse(Course){
+        return axios.post(COURSE_REST_API_URL , Course)
     }
 
-    createPayment(payment){
-        return axios.post(PAYMENT_REST_API_URL , payment)
+    deleteCourse(courseId){
+
+        return axios.delete(COURSE_REST_API_URL +'/' + courseId)
     }
 }
-export default new PaymentService();
+export default new CourseService();
