@@ -10,5 +10,9 @@ class ProgressService{
     createProgress(progress){
         return axios.post(PROGRESS_REST_API_URL , progress)
     }
+    deleteProgress(progressId){
+
+        return axios.delete(PROGRESS_REST_API_URL +'/' + progressId)
+    }
 }
 export default new ProgressService();
