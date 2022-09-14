@@ -10,6 +10,11 @@ class TrainerService{
     createTrainer(trainer){
         return axios.post(TRAINER_REST_API_URL , trainer)
     }
+
+    deleteTrainer(trainerId){
+
+        return axios.delete(TRAINER_REST_API_URL +'/' + trainerId)
+    }
 }
 
 export default new TrainerService();
