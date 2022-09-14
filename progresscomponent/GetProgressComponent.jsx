@@ -1,4 +1,5 @@
 import React , {useState,useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import ProgressService from '../service/ProgressService'
 
 const GetProgressComponent = () => {
@@ -13,8 +14,20 @@ const GetProgressComponent = () => {
         })
       
     }, [])
+
+    const deleteProgress =(progressId) => {
+        ProgressService.deleteProgress(progressId).then((Response) => {
+
+        }).catch(error =>{
+            console.log(error);
+        })
+
+    }
   return (
     <div className='container'>
+    <br /><br />
+    <Link to = "/addProgress" className="btn btn-primary">Add Student</Link>
+    <br/><br/>
     <h2 className='text-center'>Progress</h2>
         <table className='table table-bordered table-striped'>
             <thead>
@@ -31,6 +44,9 @@ const GetProgressComponent = () => {
                             <td>{progress.id}</td>
                             <td>{progress.comments}</td>
                             <td>{progress.scoredMarks}</td>
+                            <td>
+                            <button className='btn btn-danger' onClick={( ) => deleteProgress(progress.id)}>delete</button>
+                            </td>
                             
                         </tr>
                     )
