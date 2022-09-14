@@ -28,7 +28,7 @@ const TrainingSchuduleComponent = () => {
   return (
     <div className='container'>
     <br/><br/>
-    <Link to = "/addTrainingSchudule" className="btn btn-primary">Add Training Schudule</Link>
+   {/*} <Link to = "/addTrainingSchudule" className="btn btn-primary">Add Training Schudule</Link>*/}
     <br/><br/>
     <h2 className='text-center'>Training Schudule</h2>
         <table className='table table-bordered table-striped'>
@@ -54,8 +54,8 @@ const TrainingSchuduleComponent = () => {
                             <td>{trainingSchudule.endDate}</td>
                             <td>{trainingSchudule.course}</td>
                             <td>{trainingSchudule.trainer}</td>
-                            <td><button className='btn btn-danger' onClick={( ) => deleteTrainingSchudule(trainingSchudule.id)}>delete</button></td>
                             
+                            <td><Link to = "/addPayment" className="btn btn-primary">buy</Link></td>
                         </tr>
                     )
                 }
