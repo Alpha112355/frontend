@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import TrainingSchuduleService from '../service/TrainingSchuduleService'
 
 const TrainingSchuduleComponent = () => {
 
     const [trainingSchudules, settrainingSchudules] = useState([])
-
+   
     useEffect(() => {
       TrainingSchuduleService.getAllTrainingSchudule().then((Response) => {
         settrainingSchudules(Response.data)
@@ -13,11 +14,22 @@ const TrainingSchuduleComponent = () => {
         console.log(error);
     })
     }, [])
+
+    const deleteTrainingSchudule=(trainingSchuduleId) => {
+      TrainingSchuduleService.deleteTrainingSchudule(trainingSchuduleId).then((Response) => {
+
+      }).catch(error =>{
+          console.log(error);
+      })
+  }
     
 
 
   return (
     <div className='container'>
+    <br/><br/>
+    <Link to = "/addTrainingSchudule" className="btn btn-primary">Add Training Schudule</Link>
+    <br/><br/>
     <h2 className='text-center'>Training Schudule</h2>
         <table className='table table-bordered table-striped'>
             <thead>
@@ -27,6 +39,7 @@ const TrainingSchuduleComponent = () => {
                 <th>endDate</th>
                 <th>course</th>
                 <th>trainer</th>
+                <th>Action</th>
                
                 
             </thead>
@@ -40,7 +53,8 @@ const TrainingSchuduleComponent = () => {
                             <td>{trainingSchudule.startDate}</td>
                             <td>{trainingSchudule.endDate}</td>
                             <td>{trainingSchudule.course}</td>
-                            <td>{trainingSchudule.course}</td>
+                            <td>{trainingSchudule.trainer}</td>
+                            <td><button className='btn btn-danger' onClick={( ) => deleteTrainingSchudule(trainingSchudule.id)}>delete</button></td>
                             
                         </tr>
                     )
