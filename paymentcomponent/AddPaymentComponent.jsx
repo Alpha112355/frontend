@@ -15,7 +15,7 @@ const AddPaymentComponent = () => {
         
         PaymentService.createPayment(payment).then((Response) => {
            // console.log(Response.data)
-            navigate('/getPayment');
+            navigate('/getStudent');
 
 
         }).catch(error =>{
@@ -30,7 +30,7 @@ const AddPaymentComponent = () => {
     <div className='container'>
     <div >
     <div className='card col-md6 offset-md-3 offset-md-3'>
-                    <h1>Add Progress</h1>
+                    <h1>Add Payment</h1>
     <div className='card-body'>
         <form>
             <div className='form-group mb-2'>
